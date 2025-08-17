@@ -10,6 +10,9 @@ from rich.prompt import Prompt
 from rich.table import Table
 from pyfiglet import Figlet
 
+from reportlab.platypus import SimpleDocTemplate, Paragraph
+from reportlab.lib.styles import getSampleStyleSheet
+
 from deepresearch.graph import graph
 
 console = Console()
