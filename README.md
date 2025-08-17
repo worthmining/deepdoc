@@ -89,13 +89,15 @@ cp .env.example .env
 Open the `.env` file in a text editor and fill in the required fields:
 
 ```
-OPENAI_API_KEY=your_openai_api_key_here
-MISTRAL=your_mistral_api_key_here
+MISTRAL_API_KEY=
+TAVILY_API_KEY=
+OPENAI_API_KEY=
 
-# defaults
+# Default
 QDRANT_URL=http://localhost:6333
 COLLECTION_NAME=knowledge_base
 EMBEDDING_MODEL=BAAI/bge-small-en-v1.5
+QDRANT_DISABLE_THREADING=true # Don't change this
 ```
 
 These keys are essential for the application to work correctly.
@@ -133,9 +135,22 @@ You're all set to go! The application will now guide you through the dataset cre
 You can customize how the tool behaves using the `configuration.py` file. It lets you adjust 2 parameters for this application.
 
 ```python
-CONFIGURATION = {
-    "rows_per_context": 5,           # Number of QAs or rows generated per chunk
-    "evolution_depth": 1,            # How much transformation/evolution to apply (1 = minimal, 3 = very complex)
+import uuid
+
+LLM_CONFIG = {
+    "provider": "openai",
+    "model": "gpt-4o-mini", 
+    "temperature": 0.5,
+}
+
+THREAD_CONFIG = {
+    "configurable": {
+        "thread_id": str(uuid.uuid4()),
+        "max_queries": 3,
+        "search_depth": 2,
+        "num_reflections": 2,
+        "n_points": 1,
+    }
 }
 ```
 
