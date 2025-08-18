@@ -1,11 +1,9 @@
 <div align="center">
   <img src="./assets/deepdoc.png" alt="Datlore.ai" />
 </div>
-<br/>
-<br/>
-<!-- <div align="center">
-  <img src="./assets/deep_research.gif" alt="Deep Research Demo" />
-</div> -->
+<div align="center">
+  <img src="./assets/demo.gif" alt="deepdoc Demo" />
+</div>
 
 ## Overview
 
